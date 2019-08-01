@@ -299,9 +299,6 @@ void MainNode::cmdvel_setup()
   controller.write("^ECHOF 1\r");
   controller.flush();
 
-  // enable watchdog timer (1000 ms)
-  controller.write("^RWD 1000\r");
-//  controller.write("^RWD 250\r");
 
   /*
 
@@ -350,7 +347,22 @@ void MainNode::cmdvel_setup()
   controller.write("^EMOD 2 34\r");
 
   */
-  
+
+  // enable watchdog timer (1000 ms)
+  controller.write("^RWD 250\r");
+
+  // Limit acceleration
+  controller.write("^MAC 1 5000\r");
+  controller.write("^MAC 2 5000\r");
+  controller.write("^MDEC 1 5000\r");
+  controller.write("^MDEC 2 5000\r");
+  controller.write("^KP 1 100\r");
+  controller.write("^KP 2 100\r");
+  controller.write("^KD 1 0\r");
+  controller.write("^KD 2 0\r");
+  controller.write("^KI 1 0\r");
+  controller.write("^KI 2 0\r");
+
   // set encoder counts (ppr)
   std::stringstream right_enccmd;
   std::stringstream left_enccmd;
