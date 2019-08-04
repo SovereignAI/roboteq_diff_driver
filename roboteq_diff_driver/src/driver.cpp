@@ -352,17 +352,31 @@ void MainNode::cmdvel_setup()
   controller.write("^RWD 250\r");
 
   // Limit acceleration
-  controller.write("^MAC 1 5000\r");
-  controller.write("^MAC 2 5000\r");
-  controller.write("^MDEC 1 5000\r");
-  controller.write("^MDEC 2 5000\r");
-  controller.write("^KP 1 100\r");
-  controller.write("^KP 2 100\r");
-  controller.write("^KD 1 0\r");
-  controller.write("^KD 2 0\r");
-  controller.write("^KI 1 0\r");
-  controller.write("^KI 2 0\r");
-
+  if (1) {
+    controller.write("^MAC 1 5000\r");
+    controller.write("^MAC 2 5000\r");
+    controller.write("^MDEC 1 5000\r");
+    controller.write("^MDEC 2 5000\r");
+    controller.write("^KP 1 100\r");
+    controller.write("^KP 2 100\r");
+    controller.write("^KD 1 0\r");
+    controller.write("^KD 2 0\r");
+    controller.write("^KI 1 20\r");
+    controller.write("^KI 2 20\r");
+  }
+  else {
+    controller.write("^MAC 1 20000\r");
+    controller.write("^MAC 2 205000\r");
+    controller.write("^MDEC 1 20000\r");
+    controller.write("^MDEC 2 20000\r");
+    controller.write("^KP 1 10\r");
+    controller.write("^KP 2 10\r");
+    controller.write("^KD 1 0\r");
+    controller.write("^KD 2 0\r");
+    controller.write("^KI 1 80\r");
+    controller.write("^KI 2 80\r");
+  }
+  
   // set encoder counts (ppr)
   std::stringstream right_enccmd;
   std::stringstream left_enccmd;
