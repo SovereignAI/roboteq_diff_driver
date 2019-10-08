@@ -353,10 +353,10 @@ void MainNode::cmdvel_setup()
 
   // Limit acceleration
   if (1) {
-    controller.write("^MAC 1 5000\r");
-    controller.write("^MAC 2 5000\r");
-    controller.write("^MDEC 1 5000\r");
-    controller.write("^MDEC 2 5000\r");
+    controller.write("^MAC 1 4000\r");
+    controller.write("^MAC 2 4000\r");
+    controller.write("^MDEC 1 4000\r");
+    controller.write("^MDEC 2 4000\r");
     controller.write("^KP 1 100\r");
     controller.write("^KP 2 100\r");
     controller.write("^KD 1 0\r");
